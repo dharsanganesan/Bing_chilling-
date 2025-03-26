@@ -1,0 +1,65 @@
+/* Side Slider Styles */
+.side-slider {
+  position: fixed;
+  top: 0;
+  right: -400px; /* Initially hidden */
+  width: 400px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+}
+
+.side-slider.open {
+  right: 0; /* Show slider */
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.close-slider {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.slider-content {
+  padding: 20px;
+}
+
+.course-filter {
+  margin-bottom: 20px;
+}
+
+.course-filter label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.course-filter select {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.course-list {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.course-item {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.course-item:hover {
+  background: #f1f1f1;
+}

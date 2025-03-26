@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Compiler - JDoodle API</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        textarea { width: 80%; height: 200px; margin: 10px; }
+        select, input, button { margin: 10px; padding: 5px; }
+        pre { background-color: #f4f4f4; padding: 10px; width: 80%; margin: auto; text-align: left; }
+    </style>
+</head>
+<body>
+
+    <h2>Online Compiler (JDoodle API)</h2>
+
+    <label for="language">Select Language:</label>
+    <select id="language">
+        <option value="python3">Python 3</option>
+        <option value="cpp14">C++14</option>
+        <option value="java">Java</option>
+    </select>
+
+    <br>
+
+    <textarea id="code" placeholder="Write your code here..."></textarea>
+    <br>
+
+    <input type="text" id="input" placeholder="Custom Input (optional)">
+    <br>
+
+    <button onclick="runCode()">Run</button>
+
+    <h3>Output:</h3>
+    <pre id="output">Waiting for output...</pre>
+
+    <script>
+        function runCode() {
+            const language = document.getElementById("language").value;
+            const code = document.getElementById("code").value;
+            const input = document.getElementById("input").value;
+
+            document.getElementById("output").textContent = "Running...";
+
+            fetch("http://127.0.0.1:5000/compile", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ language, code, input })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").textContent = data.output || "Error: " + data.error;
+            })
+            .catch(error => {
+                document.getElementById("output").textContent = "An error occurred!";
+                console.error("Error:", error);
+            });
+        }
+    </script>
+
+</body>
+</html>
