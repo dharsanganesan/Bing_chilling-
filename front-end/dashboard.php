@@ -1,7 +1,8 @@
 <?php include 'header.php'; ?>
+<?php $username = $_SESSION['username'] ?? 'Student'; ?>
   <section class="page-header">
     <div class="container">
-      <h1>Welcome Back, Student!</h1>
+    <h1>Welcome Back, <span id="username"><?php echo htmlspecialchars($username); ?></span>!</h1>
       <p>Track your progress and continue your learning journey</p>
     </div>
   </section>

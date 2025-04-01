@@ -5,6 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = mysqli_real_escape_string($conn, $_POST['name']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
+    $reg_no = mysqli_real_escape_string($conn, $_POST['reg_no']);
+    $profile_pic = mysqli_real_escape_string($conn, $_POST['profile_pic']);
     $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Secure password
 
     // Check if email already exists
@@ -36,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
     // Insert new user data into the database
-    $query = "INSERT INTO signup (name, email, phone, profile_pic, password) 
-              VALUES ('$name', '$email', '$phone', '$profile_pic', '$password')";
+    $query = "INSERT INTO signup (name,reg_no, email, phone, profile_pic, password) 
+              VALUES ('$name','$reg_no', '$email', '$phone', '$profile_pic', '$password')";
 
     if (mysqli_query($conn, $query)) {
         echo "<script>
@@ -284,7 +286,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="text" id="phone" name="phone" placeholder="+91 456321789" required>
+            <input type="text" id="phone" name="phone" placeholder="+91 456321789" required maxlength="10">
+          </div>
+          <div class="form-group">
+            <label for="reg_no">Register Number</label>
+            <input type="text" id="reg_no" name="reg_no" placeholder="6113221031023" required maxlength="13">
           </div>
           <div class="form-group">
             <label for="photo">Profile Phone</label>
