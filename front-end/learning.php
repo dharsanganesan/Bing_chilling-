@@ -674,9 +674,9 @@
                     </div>
                 ',
                 'videos' => [
-                    ['id' => 'ABC123XYZ', 'title' => 'Formal vs Informal Communication', 'thumbnail' => 'https://img.youtube.com/vi/u_0lySVFOrY/maxresdefault.jpg'],
-                    ['id' => 'DEF456UVW', 'title' => 'Business Communication Etiquette', 'thumbnail' => 'https://img.youtube.com/vi/poJgO0FseRw/maxresdefault.jpg'],
-                    ['id' => 'GHI789RST', 'title' => 'Adapting Your Communication Style', 'thumbnail' => 'https://img.youtube.com/vi/2eZ8TU5-Vjk/maxresdefault.jpg']
+                    ['id' => 'ABC123XYZ', 'title' => 'Formal vs Informal Communication', 'thumbnail' => 'https://img.youtube.com/vi/TsXxlOUmSbc/maxresdefault.jpg'],
+                    ['id' => 'DEF456UVW', 'title' => 'Business Communication Etiquette', 'thumbnail' => 'https://img.youtube.com/vi/qWbWL0l3ySk/hqdefault.jpg'],
+                    ['id' => 'GHI789RST', 'title' => 'Adapting Your Communication Style', 'thumbnail' => 'https://img.youtube.com/vi/O3loIV3Z9MQ/mqdefault.jpg  ']
                 ],
                 'channels' => [
                     [
@@ -717,9 +717,9 @@
                     </div>
                 ',
                 'videos' => [
-                    ['id' => 'JKL012MNO', 'title' => 'Common Interview Questions', 'thumbnail' => 'https://img.youtube.com/vi/u_0lySVFOrY/maxresdefault.jpg'],
-                    ['id' => 'PQR345STU', 'title' => 'Behavioral Interview Techniques', 'thumbnail' => 'https://img.youtube.com/vi/poJgO0FseRw/maxresdefault.jpg'],
-                    ['id' => 'VWX678YZA', 'title' => 'Interview Body Language', 'thumbnail' => 'https://img.youtube.com/vi/2eZ8TU5-Vjk/maxresdefault.jpg']
+                    ['id' => 'JKL012MNO', 'title' => 'Common Interview Questions', 'thumbnail' => 'https://img.youtube.com/vi/0k0Uc9uAJwk/mqdefault.jpg'],
+                    ['id' => 'PQR345STU', 'title' => 'Behavioral Interview Techniques', 'thumbnail' => 'https://img.youtube.com/vi/ZOLCMa2QbdE/mqdefault.jpg'],
+                    ['id' => 'VWX678YZA', 'title' => 'Interview Body Language', 'thumbnail' => 'https://img.youtube.com/vi/IbXpOYWkEJw/mqdefault.jpg  ']
                 ],
                 'channels' => [
                     [
