@@ -39,7 +39,7 @@ if (session_status() === PHP_SESSION_NONE) {
           $nav_items = [
             'index.php' => 'Home',
             'dashboard.php' => 'Dashboard',
-            'learning.php' => 'Learning',
+            'gamification.php' => 'Learning',
             'challenges.php' => 'Challenges',
             'leaderboard.php' => 'Leaderboard'
           ];

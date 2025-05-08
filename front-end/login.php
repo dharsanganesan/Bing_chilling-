@@ -1,31 +1,29 @@
 <?php
 session_start();
-require '../backend/connection.php'; // Ensure this path is correct for your database connection
+require '../backend/connection.php';
 
-// Handle form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Check if the user exists in the database
-    $stmt = $conn->prepare("SELECT s_no, password FROM signup WHERE email = ?");
+    // Modified query to use 'name' instead of 'username'
+    $stmt = $conn->prepare("SELECT s_no, password, name FROM signup WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt->store_result();
-    $stmt->bind_result($id, $hashedPassword);
+    $stmt->bind_result($id, $hashedPassword, $name);  // Changed variable to $name
 
     if ($stmt->num_rows > 0) {
-        // User exists, verify the password
         $stmt->fetch();
         if (password_verify($password, $hashedPassword)) {
             $_SESSION['user_id'] = $id;
-            header("Location: ../front-end/dashboard.php"); // Redirect to dashboard
+            $_SESSION['username'] = $name;  // Store the name in session
+            header("Location: ../front-end/dashboard.php"); 
             exit();
         } else {
             $error_message = "Invalid credentials!";
         }
-    } else {
-        // User does not exist, redirect to sign-up page
+    } else { 
         header("Location: ../front-end/register.php");
         exit();
     }
@@ -33,8 +31,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
-
-
 ?>
 
 <!DOCTYPE html>

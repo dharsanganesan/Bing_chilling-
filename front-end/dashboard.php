@@ -1,7 +1,5 @@
 <?php include 'header.php'; ?>
-<?php $username = $_SESSION['username'] ?? 'Student'; ?>
 <?php
-// Sample data - replace with your actual submission data
 $submissions = [
     '2023-04-05' => 8,
     '2023-05-10' => 8,
@@ -54,23 +52,20 @@ $monthStats = calculateMonthStats($currentMonth, $currentYear, $submissions);
 function generateCalendar($month, $year, $submissions) {
     $firstDay = new DateTime("$year-$month-01");
     $daysInMonth = $firstDay->format('t');
-    $startingDay = $firstDay->format('w'); // 0 (Sunday) through 6 (Saturday)
+    $startingDay = $firstDay->format('w');
     $monthName = $firstDay->format('F');
     
     $calendar = '<div class="calendar-grid">';
     
-    // Day names header
     $dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     foreach ($dayNames as $day) {
         $calendar .= '<div class="day-header">' . $day . '</div>';
     }
     
-    // Empty cells for days before the 1st
     for ($i = 0; $i < $startingDay; $i++) {
         $calendar .= '<div class="day-empty"></div>';
     }
     
-    // Days of the month
     for ($day = 1; $day <= $daysInMonth; $day++) {
         $date = sprintf('%04d-%02d-%02d', $year, $month, $day);
         $dateKey = date('Y-m-d', strtotime($date));
@@ -88,13 +83,12 @@ function generateCalendar($month, $year, $submissions) {
         }
     }
     
-    // Empty cells after last day to complete the grid
     $remainingCells = (7 - (($daysInMonth + $startingDay) % 7)) % 7;
     for ($i = 0; $i < $remainingCells; $i++) {
         $calendar .= '<div class="day-empty"></div>';
     }
     
-    $calendar .= '</div>'; // Close calendar-grid
+    $calendar .= '</div>'; 
     
     return [
         'calendar' => $calendar,
@@ -105,13 +99,19 @@ function generateCalendar($month, $year, $submissions) {
 
 $calendarData = generateCalendar($currentMonth, $currentYear, $submissions);
 ?>
-
-  <section class="page-header">
+<?php
+if(isset($_SESSION['email'])) {
+    $username = $_SESSION['email'];
+} else {
+    $username = 'Guest'; 
+}
+?>
+<section class="page-header">
     <div class="container">
-    <h1>Welcome Back, <span id="username"><?php echo htmlspecialchars($username); ?></span>!</h1>
-      <p>Track your progress and continue your learning journey</p>
+<h1>Welcome, <?php echo htmlspecialchars($_SESSION['username'] ?? 'Guest'); ?></h1>
+        <p>Track your progress and continue your learning journey</p>
     </div>
-  </section>
+</section>
   <section class="dashboard">
     <div class="container">
       <div class="stats-grid">
