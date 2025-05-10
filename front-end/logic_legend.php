@@ -5,16 +5,17 @@ require_once '../backend/connection.php';
 // Initialize games array with proper redirect paths
 $games = [
     'binary_challenge' => [
-        'name' => 'Binary Challenge',
-        'description' => 'Convert decimal numbers to binary as fast as you can!',
+        'name' => 'ChatStrike',
+        'description' => '"In a world where every word holds power, ChatStrike is the ultimate communicator-turned-warrior. Whether negotiating with allies, decoding enemy transmissions, or issuing real-time commands in battle, your ability to process scenario-based questions determines victory.',
         'icon' => 'icon_bin.gif',
         'redirect' => 'games/binary_challenge.php',
         'category' => 'Math'
     ],
     'logic_gates' => [
-        'name' => 'Logic Gates',
-        'description' => 'Solve puzzles using AND, OR, NOT, and XOR gates',
+        'name' => 'Persuade Me',
+        'description' => '"Persuade Me" is a turn-based communication game where adults practice persuasive writing and response skills through real-life scenarios.',
         'icon' => 'logic-gates-icon.png',
+        'redirect' => 'games/Persuade_me.php',
         'category' => 'Logic'
     ],
     'sequence_master' => [
@@ -597,7 +598,7 @@ if (isset($_POST['submit_score']) && isset($_SESSION['user_id'])) {
         
         <div class="game-categories">
             <button class="category-btn math active" onclick="filterGames('all')">All Games</button>
-            <button class="category-btn math" onclick="filterGames('math')">Math</button>
+            <button class="category-btn math" onclick="filterGames('math')">Communication</button>
             <button class="category-btn logic" onclick="filterGames('logic')">Logic</button>
             <button class="category-btn patterns" onclick="filterGames('patterns')">Patterns</button>
             <button class="category-btn puzzles" onclick="filterGames('puzzles')">Puzzles</button>
